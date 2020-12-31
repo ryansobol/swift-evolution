@@ -243,7 +243,7 @@ We can then re-implement `makeDinner` with only a task group:
 
 ```swift
 func makeDinnerTaskGroup() async throws -> Meal {
-  return try await Task.withGroup(resultType: DinnerChildTask.self) { group in    
+  return try await Task.withGroup(resultType: DinnerChild.self) { group in    
     await group.add {
       DinnerChild.chopVegetables(await chopVegetables())
     }
