@@ -153,6 +153,12 @@ Our approach follows the principles of *structured concurrency* described above.
 This proposal introduces an easy way to create child tasks with `async let`:
 
 ```swift
+func chopVegetables() async throws -> [Vegetable] { ... }
+func marinateMeat() async -> Meat { ... }
+func preheatOven(temperature: Double) async throws -> Oven { ... }
+
+// ...
+
 func makeDinner() async throws -> Meal {
   async let veggies = chopVegetables()
   async let meat = marinateMeat()
