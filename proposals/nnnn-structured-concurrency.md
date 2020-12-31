@@ -199,7 +199,7 @@ Introducing `async let` into the loop would not produce any meaningful concurren
 /// Concurrently chop the vegetables.
 func chopVegetables() async throws -> [Vegetable] {
   // Create a task group where each task produces (Int, Vegetable).
-  try await Task.withGroup(resultType: (Int, Vegetable).self) { group in 
+  return try await Task.withGroup(resultType: (Int, Vegetable).self) { group in 
     var veggies: [Vegetable] = gatherRawVeggies()
     
     // Create a new child task for each vegetable that needs to be 
